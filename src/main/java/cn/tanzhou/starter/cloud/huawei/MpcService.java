@@ -62,14 +62,9 @@ public class MpcService {
      * @return java.lang.String isSync=true，直接返回帧对象，否则返回taskId
      * @author 敖癸 2020-12-04 - 22:24
      **/
-    public String thumbnails(String objectKey,boolean isSync) {
+    public CreateThumbnailsTaskResponse thumbnails(String objectKey,boolean isSync) {
         CreateThumbnailsTaskRequest createThumbnailsTaskRequest = new CreateThumbnailsTaskRequest();
         createThumbnailsTaskRequest.setBody(createThumbReq(objectKey,isSync));
-        CreateThumbnailsTaskResponse thumbnailsTask = mpcClient.createThumbnailsTask(createThumbnailsTaskRequest);
-        if (isSync){
-            return thumbnailsTask.getOutput().getObject();
-        } else {
-            return thumbnailsTask.getTaskId();
-        }
+        return mpcClient.createThumbnailsTask(createThumbnailsTaskRequest);
     }
 }

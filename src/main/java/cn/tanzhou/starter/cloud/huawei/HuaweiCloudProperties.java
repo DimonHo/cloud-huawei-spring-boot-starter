@@ -16,7 +16,7 @@ public class HuaweiCloudProperties {
     /**
      * 账户名
      */
-    private String accountName;
+    private String account;
 
     /**
      * IAM用户名
