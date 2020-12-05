@@ -42,7 +42,7 @@ public class HuaweiCloudConfiguration {
     }
 
     @Bean
-    @ConditionalOnBean(ICredential.class)
+    @ConditionalOnClass(IamClient.class)
     public IamClient iamClient(GlobalCredentials globalCredentials, HuaweiCloudProperties huaweiCloudProperties) {
         return IamClient.newBuilder()
             .withCredential(globalCredentials)
@@ -51,7 +51,7 @@ public class HuaweiCloudConfiguration {
     }
 
     @Bean
-    @ConditionalOnBean(ICredential.class)
+    @ConditionalOnClass(MpcClient.class)
     public MpcClient mpcClient(BasicCredentials basicCredentials, HuaweiCloudProperties huaweiCloudProperties) {
         return MpcClient.newBuilder()
             .withCredential(basicCredentials)
