@@ -24,7 +24,7 @@
     <dependency>
       <groupId>com.huaweicloud.sdk</groupId>
       <artifactId>huaweicloud-sdk-iam</artifactId>
-      <version>3.0.23-beta</version>
+      <version>[3.0.23-beta,)</version>
     </dependency>
     <dependency>
       <groupId>com.huaweicloud.sdk</groupId>
