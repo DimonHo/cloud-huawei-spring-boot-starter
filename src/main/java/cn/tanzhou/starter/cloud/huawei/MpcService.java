@@ -7,6 +7,8 @@ import com.huaweicloud.sdk.mpc.v1.model.CreateThumbnailsTaskResponse;
 import com.huaweicloud.sdk.mpc.v1.model.ObsObjInfo;
 import com.huaweicloud.sdk.mpc.v1.model.ThumbnailPara;
 import com.huaweicloud.sdk.mpc.v1.model.ThumbnailPara.TypeEnum;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,17 +27,20 @@ public class MpcService {
 
     private ObsObjInfo obsObjInfo(String objectKey) {
         ObsObjInfo obsObjInfo = new ObsObjInfo();
-        obsObjInfo.setBucket(huaweiCloudProperties.getBucketName());
+        obsObjInfo.setBucket(huaweiCloudProperties.getBucket());
         obsObjInfo.setLocation(huaweiCloudProperties.getLocation());
         obsObjInfo.setObject(objectKey);
         return obsObjInfo;
     }
 
     private ThumbnailPara thumbnailPara(){
+        List<Integer> dots = new ArrayList<>();
+        dots.add(2);
         ThumbnailPara thumbnailPara = new ThumbnailPara();
         thumbnailPara.setFormat(1);
         thumbnailPara.setType(TypeEnum.DOTS);
         thumbnailPara.setMaxLength(480);
+        thumbnailPara.setDots(dots);
         return thumbnailPara;
     }
 

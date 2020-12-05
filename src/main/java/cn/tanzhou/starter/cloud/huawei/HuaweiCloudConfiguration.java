@@ -7,7 +7,6 @@ import com.huaweicloud.sdk.core.auth.ICredential;
 import com.huaweicloud.sdk.iam.v3.IamClient;
 import com.huaweicloud.sdk.mpc.v1.MpcClient;
 import com.obs.services.ObsClient;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -36,7 +35,7 @@ public class HuaweiCloudConfiguration {
     @ConditionalOnClass(ICredential.class)
     public BasicCredentials basicCredentials(HuaweiCloudProperties huaweiCloudProperties) {
         return new BasicCredentials()
-            .withProjectId(huaweiCloudProperties.getDomainId())
+            .withProjectId(huaweiCloudProperties.getProjectId())
             .withAk(huaweiCloudProperties.getAk())
             .withSk(huaweiCloudProperties.getSk());
     }
